@@ -15,8 +15,8 @@ const IncomeStatementComponent: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<'annual' | 'quarterly'>('annual');
 
   useEffect(() => {
-    const symbol = 'IBM';
-    const apiKey = 'demo';
+    const symbol = process.env.REACT_APP_SYMBOL!;
+    const apiKey = process.env.REACT_APP_API_KEY!;
     fetchIncomeStatement(symbol, apiKey)
       .then(data => {
         setIncomeStatements({
