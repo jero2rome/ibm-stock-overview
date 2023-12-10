@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { fetchIncomeStatement } from '../services/incomeStatementService';
 import { IncomeStatementData } from '../types/incomeStatementTypes';
+import { financialDataService } from '../services/financialDataService';
 import { SelectButton } from 'primereact/selectbutton';
 
 const IncomeStatementComponent: React.FC = () => {
@@ -15,9 +15,10 @@ const IncomeStatementComponent: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<'annual' | 'quarterly'>('annual');
 
   useEffect(() => {
+    const url = process.env.REACT_APP_API_URL!;
     const symbol = process.env.REACT_APP_SYMBOL!;
     const apiKey = process.env.REACT_APP_API_KEY!;
-    fetchIncomeStatement(symbol, apiKey)
+    financialDataService.getIncomeStatement(url, symbol, apiKey)
       .then(data => {
         setIncomeStatements({
           annual: data.annualIncomeStatements,

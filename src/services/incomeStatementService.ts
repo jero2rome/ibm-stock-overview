@@ -4,6 +4,7 @@ import axios from 'axios';
 import { RawIncomeStatementEntry, IncomeStatementData } from '../types/incomeStatementTypes';
 
 export const fetchIncomeStatement = async (
+  url:string,
   symbol: string,
   apiKey: string
 ): Promise<{
@@ -11,7 +12,7 @@ export const fetchIncomeStatement = async (
   quarterlyIncomeStatements: IncomeStatementData[];
 }> => {
   try {
-    const response = await axios.get('https://www.alphavantage.co/query', {
+    const response = await axios.get(url, {
       params: {
         function: 'INCOME_STATEMENT',
         symbol: symbol,
@@ -46,7 +47,7 @@ export const fetchIncomeStatement = async (
         comprehensiveIncomeNetOfTax: report.comprehensiveIncomeNetOfTax,
         ebit: report.ebit,
         ebitda: report.ebitda,
-        netIncome: report.netIncome        
+        netIncome: report.netIncome
       }));
     };
 

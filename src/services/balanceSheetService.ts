@@ -4,6 +4,7 @@ import axios from 'axios';
 import { RawBalanceSheetEntry, BalanceSheetData } from '../types/balanceSheetType';
 
 export const fetchBalanceSheet = async (
+    url:string,
     symbol: string,
     apiKey: string
     ): Promise<{
@@ -11,7 +12,7 @@ export const fetchBalanceSheet = async (
         quarterlyBalanceSheets: BalanceSheetData[];
     }> => {
   try {
-    const response = await axios.get('https://www.alphavantage.co/query', {
+    const response = await axios.get(url, {
       params: {
         function: 'BALANCE_SHEET',
         symbol: symbol,

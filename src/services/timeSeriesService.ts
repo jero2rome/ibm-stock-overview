@@ -8,16 +8,16 @@ interface ApiResponse {
   'Time Series (Daily)': { [key: string]: RawTimeSeriesEntry };
 }
 
-export const fetchTimeSeriesDaily = async (symbol: string, apiKey: string): Promise<{ metaData: TimeSeriesMetaData, seriesData: TimeSeriesData[] }> => {
+export const fetchTimeSeriesDaily = async (url:string, symbol: string, apiKey: string): Promise<{ metaData: TimeSeriesMetaData, seriesData: TimeSeriesData[] }> => {
   try {
-    const response = await axios.get<ApiResponse>('https://www.alphavantage.co/query', {
+    const response = await axios.get<ApiResponse>(url, {
       params: {
         function: 'TIME_SERIES_DAILY',
         symbol: symbol,
         apikey: apiKey
       }
     });
-    
+
     const timeSeriesData = response.data['Time Series (Daily)'];
     const metaData: TimeSeriesMetaData = {
       information: response.data['Meta Data']['1. Information'],

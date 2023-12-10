@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { fetchBalanceSheet } from '../services/balanceSheetService';
 import { BalanceSheetData } from '../types/balanceSheetType';
+import { financialDataService } from '../services/financialDataService';
 import { SelectButton } from 'primereact/selectbutton';
 
 const BalanceSheetComponent: React.FC = () => {
@@ -15,9 +15,10 @@ const BalanceSheetComponent: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<'annual' | 'quarterly'>('annual');
 
   useEffect(() => {
+    const url = process.env.REACT_APP_API_URL!;
     const symbol = process.env.REACT_APP_SYMBOL!;
     const apiKey = process.env.REACT_APP_API_KEY!;
-    fetchBalanceSheet(symbol, apiKey)
+    financialDataService.getBalanceSheet(url, symbol, apiKey)
       .then(data => {
         setBalanceSheets({
           annual: data.annualBalanceSheets,
