@@ -40,19 +40,22 @@ const StockChartComponent: React.FC = () => {
     svg.selectAll("*").remove();
 
     const { xScale, yScale } = createScales();
+    const chartWidth = dimensions.width - margins.left - margins.right;
+    const chartHeight = dimensions.height - margins.top - margins.bottom;
     const g = svg.append("g").attr("transform", `translate(${margins.left},${margins.top})`);
 
     g.append("g")
-      .attr("transform", `translate(0,${dimensions.height - margins.bottom - margins.top})`)
-      .call(d3.axisBottom(xScale));
+    .attr("transform", `translate(0,${chartHeight})`)
+    .call(d3.axisBottom(xScale));
 
-    g.append("g")
-      .call(d3.axisLeft(yScale))
+      g.append("g")
+      .attr("transform", `translate(${chartWidth}, 0)`)
+      .call(d3.axisRight(yScale))
       .append("text")
       .attr("fill", "#000")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
+      .attr("y", -12)
+      .attr("dy", "-0.71em")
       .attr("text-anchor", "end")
       .text("Price ($)");
 
