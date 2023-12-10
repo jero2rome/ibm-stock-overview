@@ -7,7 +7,7 @@ export interface TimeSeriesMetaData {
     outputSize: string;
     timeZone: string;
   }
-  
+
   export interface RawTimeSeriesEntry {
     '1. open': string;
     '2. high': string;
@@ -15,13 +15,12 @@ export interface TimeSeriesMetaData {
     '4. close': string;
     '5. volume': string;
   }
-  
+
   export interface TimeSeriesData {
-    date: string;
-    open: string;
-    high: string;
-    low: string;
-    close: string;
-    volume: string;
+    date: Date;
+    open: number;
+    high: number;
+    low: number;
+    close: number;
+    volume: number;
   }
-  

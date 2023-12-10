@@ -28,12 +28,12 @@ export const fetchTimeSeriesDaily = async (url:string, symbol: string, apiKey: s
     };
 
     const seriesData: TimeSeriesData[] = Object.entries(timeSeriesData).map(([date, data]) => ({
-      date,
-      open: data['1. open'],
-      high: data['2. high'],
-      low: data['3. low'],
-      close: data['4. close'],
-      volume: data['5. volume']
+      date: new Date(date),
+      open: Number(data['1. open']),
+      high: Number(data['2. high']),
+      low: Number(data['3. low']),
+      close: Number(data['4. close']),
+      volume: Number(data['5. volume'])
     }));
 
     return { metaData, seriesData };
