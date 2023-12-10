@@ -1,0 +1,37 @@
+div.stockDiv {
+  text-align: center;
+}
+
+h3 {
+  color: #232A31;
+  font-size: 18px;
+}
+
+.headerTagsDiv {
+  /* border: 1px; */
+  border: 1px solid #d1d5db;
+}
+
+span.pTagHeader {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  width: 100%;
+}
+
+.pTagHeader p {
+  margin: 0;
+}
+
+.left-aligned {
+  text-align: left;
+}
+
+.right-aligned {
+  text-align: right;
+}
+
+.left-aligned, .right-aligned  {
+  font-size: 14px;
+  color: #5B636A;
+}

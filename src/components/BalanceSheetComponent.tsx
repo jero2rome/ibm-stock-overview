@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BalanceSheetData } from '../types/balanceSheetType';
 import { financialDataService } from '../services/financialDataService';
 import { SelectButton } from 'primereact/selectbutton';
+import './FinancialTablesStyles.scss';
 
 const BalanceSheetComponent: React.FC = () => {
   const [balanceSheets, setBalanceSheets] = useState<{
@@ -37,7 +38,7 @@ const BalanceSheetComponent: React.FC = () => {
     const keys = statements[0] ? Object.keys(statements[0]) : [];
 
     return (
-      <table>
+      <table className="stockTable">
         <thead>
           <tr>
             <th>Breakdown</th>
@@ -62,7 +63,7 @@ const BalanceSheetComponent: React.FC = () => {
 
   return (
     <div>
-      <h2>Income Statements</h2>
+      <h2 className='headerTag'>Balance Sheet</h2>
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <SelectButton value={selectedPeriod} options={options} onChange={(e) => setSelectedPeriod(e.value)} />
       </div>

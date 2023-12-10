@@ -1,0 +1,82 @@
+// Console log to test SCSS compilation
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.p-tabmenu.p-component.headerTab > ul.p-tabmenu-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom,#f9f9f9,#ebe8ef);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.4)!important;
+}
+
+.p-tabmenu.p-component.headerTab > ul.p-tabmenu-nav > li > a.p-menuitem-link {
+  background-image: linear-gradient(to bottom,#f9f9f9,#ebe8ef);
+  color: #070f6c;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: "GT America"
+  "Yahoo Sans Finance"
+  "Helvetica Neue"
+  Arial
+  sans-serif;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+  border-color: #324fe1 !important;
+}
+
+.p-tabmenu.p-component.headerTab > ul.p-tabmenu-nav > li.p-tabmenuitem :hover {
+  background: #e0f0ff !important;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  transition: none !important;
+}
+
+.p-tabmenu {
+  overflow-x: none !important;
+}
+
+p-tabmenu .p-tabmenu-nav {
+  background: none !important;
+  border: none !important;
+  border-width: none !important;
+}

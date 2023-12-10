@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import * as d3 from 'd3';
 import { financialDataService } from '../services/financialDataService';
 import { TimeSeriesData, TimeSeriesMetaData } from '../types/timeSeriesTypes';
+import './StockChartComponent.scss';
 
 const StockChartComponent: React.FC = () => {
   const [timeSeriesData, setTimeSeriesData] = useState<TimeSeriesData[]>([]);
@@ -119,12 +120,14 @@ const StockChartComponent: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className='stockDiv'>
       {metaData && (
-        <div>
+        <div className='headerTagsDiv'>
           <h3>{metaData.symbol} - {metaData.information}</h3>
-          <p>Last Refreshed: {metaData.lastRefreshed}</p>
-          <p>Time Zone: {metaData.timeZone}</p>
+          <span className='pTagHeader'>
+          <p className='left-aligned'>Last Refreshed: {metaData.lastRefreshed}</p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <p className='right-aligned'>Time Zone: {metaData.timeZone}</p>
+          </span>
         </div>
       )}
       <svg ref={d3Container} width={dimensions.width} height={dimensions.height} />
