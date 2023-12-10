@@ -1,6 +1,4 @@
 // src/types/incomeStatementTypes.ts
-
-import e from "express";
 import { FinancialData } from "./FinancialData";
 
 export interface RawIncomeStatementEntry extends FinancialData {
