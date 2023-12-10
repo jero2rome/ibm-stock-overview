@@ -30,9 +30,9 @@ export interface RawIncomeStatementEntry {
   }
   
   export interface IncomeStatementData {
-    fiscalDateEnding: Date;
+    fiscalDateEnding: string;
     reportedCurrency: string;
-    grossProfit: number;
+    grossProfit: string;
     totalRevenue: string;
     costOfRevenue: string;
     costofGoodsAndServicesSold: string;
@@ -58,3 +58,4 @@ export interface RawIncomeStatementEntry {
     netIncome: string;
   }
   
+  export type IncomeStatementEntries = RawIncomeStatementEntry[];
