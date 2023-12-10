@@ -1,8 +1,8 @@
 // src/types/balanceSheetTypes.ts
 
-export interface RawBalanceSheetEntry {
-  fiscalDateEnding: string;
-  reportedCurrency: string;
+import { FinancialData } from "./FinancialData";
+
+export interface RawBalanceSheetEntry extends FinancialData {
   totalAssets: string;
   totalCurrentAssets: string;
   cashAndCashEquivalentsAtCarryingValue: string;
@@ -41,9 +41,7 @@ export interface RawBalanceSheetEntry {
   commonStockSharesOutstanding: string;
 }
 
-export interface BalanceSheetData {
-  fiscalDateEnding: string;
-  reportedCurrency: string;
+export interface BalanceSheetData extends FinancialData {
   totalAssets: string;
   totalCurrentAssets: string;
   cashAndCashEquivalentsAtCarryingValue: string;

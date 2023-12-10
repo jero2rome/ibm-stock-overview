@@ -1,8 +1,9 @@
 // src/types/incomeStatementTypes.ts
 
-export interface RawIncomeStatementEntry {
-  fiscalDateEnding: string;
-  reportedCurrency: string;
+import e from "express";
+import { FinancialData } from "./FinancialData";
+
+export interface RawIncomeStatementEntry extends FinancialData {
   grossProfit: string;
   totalRevenue: string;
   costOfRevenue: string;
@@ -29,9 +30,7 @@ export interface RawIncomeStatementEntry {
   netIncome: string;
 }
 
-export interface IncomeStatementData {
-  fiscalDateEnding: string;
-  reportedCurrency: string;
+export interface IncomeStatementData extends FinancialData {
   grossProfit: string;
   totalRevenue: string;
   costOfRevenue: string;
