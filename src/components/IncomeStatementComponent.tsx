@@ -39,7 +39,7 @@ const IncomeStatementComponent: React.FC = () => {
       <table>
         <thead>
           <tr>
-            <th>Property</th>
+            <th>Breakdown</th>
             {statements.map((statement, index) => (
               <th key={index}>{new Date(statement.fiscalDateEnding).getFullYear()}</th>
             ))}
