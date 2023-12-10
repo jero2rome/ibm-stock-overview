@@ -1,0 +1,12 @@
+# top-most EditorConfig file
+root = true
+
+# Matches multiple files with brace expansion notation
+[*.{js,jsx,ts,tsx,json,css,scss,md}]
+
+charset = utf-8                 # Character encoding
+indent_style = space            # Use spaces for indentation
+indent_size = 2                 # Sets the number of spaces per indent
+end_of_line = lf                # Line ending format (lf, crlf, cr)
+trim_trailing_whitespace = true # Trim trailing whitespaces
+insert_final_newline = true     # Ensure newline at the end of the file

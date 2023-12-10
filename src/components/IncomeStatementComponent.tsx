@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchIncomeStatement } from '../services/incomeStatementService'; 
+import { fetchIncomeStatement } from '../services/incomeStatementService';
 import { IncomeStatementData } from '../types/incomeStatementTypes';
 import { SelectButton } from 'primereact/selectbutton';
 
@@ -16,7 +16,7 @@ const IncomeStatementComponent: React.FC = () => {
 
   useEffect(() => {
     const symbol = 'IBM';
-    const apiKey = 'YOUR_API_KEY';
+    const apiKey = 'demo';
     fetchIncomeStatement(symbol, apiKey)
       .then(data => {
         setIncomeStatements({
@@ -69,7 +69,7 @@ const IncomeStatementComponent: React.FC = () => {
         renderTable(incomeStatements.annual)
       ) : (
         renderTable(incomeStatements.quarterly)
-      )}      
+      )}
     </div>
   );
 };
