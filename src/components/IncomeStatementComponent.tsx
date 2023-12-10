@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchIncomeStatement } from '../services/incomeStatementService'; 
 import { IncomeStatementData } from '../types/incomeStatementTypes';
+import { SelectButton } from 'primereact/selectbutton';
 
 const IncomeStatementComponent: React.FC = () => {
   const [incomeStatements, setIncomeStatements] = useState<{
@@ -10,6 +11,8 @@ const IncomeStatementComponent: React.FC = () => {
     annual: [],
     quarterly: []
   });
+
+  const [selectedPeriod, setSelectedPeriod] = useState<'annual' | 'quarterly'>('annual');
 
   useEffect(() => {
     const symbol = 'IBM';
@@ -23,6 +26,11 @@ const IncomeStatementComponent: React.FC = () => {
       })
       .catch(error => console.error('Fetching income statements failed', error));
   }, []);
+
+  const options = [
+    { label: 'Annual', value: 'annual' },
+    { label: 'Quarterly', value: 'quarterly' }
+  ];
 
   const renderTable = (statements: IncomeStatementData[]) => {
     const keys = statements[0] ? Object.keys(statements[0]) : [];
@@ -53,11 +61,15 @@ const IncomeStatementComponent: React.FC = () => {
 
   return (
     <div>
-      <h2>Annual Income Statements</h2>
-      {renderTable(incomeStatements.annual)}
-
-      <h2>Quarterly Income Statements</h2>
-      {renderTable(incomeStatements.quarterly)}
+      <h2>Income Statements</h2>
+      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <SelectButton value={selectedPeriod} options={options} onChange={(e) => setSelectedPeriod(e.value)} />
+      </div>
+      {selectedPeriod === 'annual' ? (
+        renderTable(incomeStatements.annual)
+      ) : (
+        renderTable(incomeStatements.quarterly)
+      )}      
     </div>
   );
 };
